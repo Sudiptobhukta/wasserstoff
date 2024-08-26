@@ -1,4 +1,4 @@
-import React, {useState } from 'react';
+import React, {useState, useEffect } from 'react';
 import Header from '../components/Header';
 import axios from 'axios';
 import Weather from '../components/Weather';
@@ -13,6 +13,12 @@ function Home() {
   const [forecast, setForecast] = useState([]); // this will store the response of the API for forecast initial it is empty list
   const [unit, setUnit] = useState('metric'); // this will store the unit for Celcius and Fahrenheit
   const [error, setError] = useState(''); // this will store error message if there is any error
+
+//this changes the unit everytime handleClick is triggered
+
+useEffect(()=>{
+  handleClick()
+},[unit])
 
   trefoil.register(); // initilisation for trefoil loader
 
